@@ -15,11 +15,7 @@ class Todo < ActiveRecord::Base
   end
 
   def self.mark_as_complete!(id)
-    all.each { |todo|
-      if todo.id == id
-        todo.completed = true
-      end
-    }
+    todo = all.find { id }
   end
 
   def to_displayable_string
